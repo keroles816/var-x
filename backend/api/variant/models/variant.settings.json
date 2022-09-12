@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "variants",
+  "info": {
+    "name": "variant"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "size": {
+      "type": "string",
+      "required": false
+    },
+    "color": {
+      "type": "string",
+      "required": true
+    },
+    "qty": {
+      "type": "integer",
+      "required": true
+    },
+    "price": {
+      "required": true,
+      "type": "decimal"
+    },
+    "style": {
+      "type": "string",
+      "required": false
+    },
+    "images": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "product": {
+      "model": "product",
+      "via": "variants"
+    },
+    "colorLabel": {
+      "type": "enumeration",
+      "enum": [
+        "black",
+        "white",
+        "green",
+        "red",
+        "tan"
+      ]
+    }
+  }
+}
